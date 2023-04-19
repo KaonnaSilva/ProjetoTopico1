@@ -1,0 +1,39 @@
+import java.util.Date;
+
+public class PontoEletronico {
+    
+    private String funcionario;
+    private Date dataEntrada;
+    private Date dataSaida;
+    
+    public PontoEletronico(String funcionario) {
+        this.funcionario = funcionario;
+        this.dataEntrada = new Date();
+    }
+    
+    public void registrarSaida() {
+        this.dataSaida = new Date();
+    }
+    
+    public String getFuncionario() {
+        return funcionario;
+    }
+    
+    public Date getDataEntrada() {
+        return dataEntrada;
+    }
+    
+    public Date getDataSaida() {
+        return dataSaida;
+    }
+    
+    public long getTotalHorasTrabalhadas() {
+        return (dataSaida.getTime() - dataEntrada.getTime()) / (60 * 60 * 1000);
+    }
+    
+    public static void main(String[] args) {
+        PontoEletronico ponto = new PontoEletronico("Funcionário 1");
+        // realiza outras operações, como registrar a saída e calcular o total de horas trabalhadas
+    }
+}
+
